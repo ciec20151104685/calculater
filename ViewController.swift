@@ -25,6 +25,38 @@ class ViewController: UIViewController {
         
       
     }
+    @IBAction func operate(_ sender: UIButton) {
+        let operation = sender.currentTitle!
+        if userIsInMiddleOfTypeingANumber{
+            enter()
+        }
+        switch operation {
+        case "X":
+            if operandStack.count >= 2 {
+                displayValue = operandStack.removeLast() * operandStack.removeLast()
+                enter()
+            }
+        case "+":
+            if operandStack.count >= 2 {
+                displayValue = operandStack.removeLast() + operandStack.removeLast()
+                enter()
+            }
+        case "-":
+            if operandStack.count >= 2 {
+                displayValue = operandStack.removeLast() - operandStack.removeLast()
+                enter()
+            }
+        case "/":
+            if operandStack.count >= 2 {
+                displayValue = operandStack.removeLast() / operandStack.removeLast()
+                enter()
+            }
+        default:
+            break
+        }
+        
+    }
+    
     var operandStack=Array<Double>()
     @IBAction func enter() {
         userIsInMiddleOfTypeingANumber=false
