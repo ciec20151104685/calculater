@@ -11,9 +11,11 @@ import UIKit//导入ui框架
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    //label只能显示不能操作
     var userIsInMiddleOfTypeingANumber: Bool = false
     @IBAction func appendDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
+        //发送按钮的title
         if userIsInMiddleOfTypeingANumber {
             display.text=display.text!+digit
         }
@@ -72,6 +74,7 @@ class ViewController: UIViewController {
         set{
             display.text="\(newValue)"
             userIsInMiddleOfTypeingANumber=false
+        
         }
     }
 }
